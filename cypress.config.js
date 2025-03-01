@@ -5,6 +5,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // Event listeners if needed
     },
-    baseUrl: "https://example.cypress.io", // Change this URL to match your project
+    baseUrl: "https://example.cypress.io", // Change to your site
+    supportFile: "cypress/support/e2e.js", // Ensure Cypress finds this file
   },
 })
