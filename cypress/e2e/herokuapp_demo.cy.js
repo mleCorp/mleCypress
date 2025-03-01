@@ -1,6 +1,6 @@
 describe('The herokuapp Test', () => {
 
-    /*
+    
     
       // Test Case 1 - Click and Find Version
       it('Click and Find Version', () => {
@@ -18,6 +18,7 @@ describe('The herokuapp Test', () => {
         })  
       })
     
+      
       // Test Case 2 - Find Using length
       it('Find Using length', () => {
         cy.visit('https://the-internet.herokuapp.com/')
@@ -1021,7 +1022,7 @@ describe('The herokuapp Test', () => {
           }
         });
     })
-    */
+    
     //Test Case 44  - TinyMCE WYSIWYG
     it('TinyMCE WYSIWYG', () => {
       cy.visit('https://autotest.how/demo/tinymce'); 
