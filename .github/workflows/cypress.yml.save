@@ -19,6 +19,3 @@ jobs:
 
       - name: Run Cypress Tests
         run: npx cypress run
-
-      - name: Run Cypress Tests
-        run: npx cypress open
