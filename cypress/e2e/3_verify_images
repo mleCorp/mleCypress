@@ -1,0 +1,40 @@
+describe('3 Verify Images', () => {
+    it('3.a Verify Image Visible', () => {
+        cy.visit('https://the-internet.herokuapp.com/')
+        cy.get('ul li').eq(3).click(15,10)
+
+        cy.get('div.example img').eq(2).should('be.visible')
+
+      })
+
+    it('3.b Verify Broken Image', () => {
+        cy.visit('https://the-internet.herokuapp.com/')
+        cy.get('ul li').eq(3).click(15,10)
+  
+        cy.get('div.example img').eq(1).then(($imgT) => {
+          const naturalWidth = $imgT[0].naturalWidth;
+          cy.log('Image natural width:', naturalWidth);
+          if (naturalWidth === 0) {
+            cy.log('The image is broken.');
+          } else {
+            cy.log('The image loaded correctly.');
+          }
+        })
+      })
+
+    it('3.c Verify Image Loaded Correctly', () => {
+        cy.visit('https://the-internet.herokuapp.com/')
+        cy.get('ul li').eq(3).click(15,10)
+  
+        cy.get('div.example img').eq(2).then(($imgT) => {
+          const naturalWidth = $imgT[0].naturalWidth;
+          cy.log('Image natural width:', naturalWidth);
+          if (naturalWidth === 0) {
+            cy.log('The image is broken.');
+          } else {
+            cy.log('The image loaded correctly.');
+          }
+        })
+      })
+
+})

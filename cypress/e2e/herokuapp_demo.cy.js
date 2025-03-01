@@ -1,77 +1,12 @@
 describe('The herokuapp Test', () => {
 
     
-    
-      // Test Case 1 - Click and Find Version
-      it('Click and Find Version', () => {
-        cy.visit('https://the-internet.herokuapp.com/')
-        cy.contains('A/B Testing').click() 
-        
-        // This is to find using div class "example" and div container wherre it will find for exact test A/B Test Variation 1
-        // This page sometimes load "A/B Test Variation 1" or "A/B Test Control"
-        cy.get('div.example').find('h3').then((version) => {
-          if(version.text().includes('A/B Test Variation 1')){
-            cy.log('This is version 1');
-          }else{
-            cy.log('This is version 2');
-          }
-        })  
-      })
+    /*
+     
     
       
-      // Test Case 2 - Find Using length
-      it('Find Using length', () => {
-        cy.visit('https://the-internet.herokuapp.com/')
-        
-        cy.get('ul li').eq(1).invoke('text').then((txt) => {
-          cy.log('The text of the second li is: ' + txt);
-        })
+      
     
-        cy.get('ul li').eq(1).click(15,10) // click (15,20) (15px from the left and 20px from the top)
-        //cy.contains('Add Element').click()
-        
-    
-        cy.contains('Add Element').click()
-        cy.contains('Add Element').click()
-        cy.contains('Add Element').click()
-    
-          cy.get('.added-manually').its('length').then((lenbutton) => {
-            cy.log(lenbutton);
-          })
-    
-      })
-    
-      // Test Case 3 - Basic Authentication
-      it('Basic Authentication', () => {
-        cy.visit('https://the-internet.herokuapp.com/', {
-          auth: {
-            username: 'admin',
-            password: 'admin'
-          }})
-          cy.get('ul li').eq(2).click(15,10)
-          cy.contains('Congratulations! You must have the proper credentials.')
-          cy.wait(2000)
-          cy.clearAllCookies()
-        })
-    
-      // Test Case 4 - Broken Image
-        it('Broken Image', () => {
-          cy.visit('https://the-internet.herokuapp.com/')
-          cy.contains('Broken Images').click()
-          cy.contains('Powered by Elemental Selenium')
-          cy.get('div.example img').eq(2).should('be.visible')
-    
-          cy.get('div.example img').eq(1).then(($imgT) => {
-            const naturalWidth = $imgT[0].naturalWidth;
-            cy.log('Image natural width:', naturalWidth);
-            if (naturalWidth === 0) {
-              cy.log('The image is broken.');
-            } else {
-              cy.log('The image loaded correctly.');
-            }
-          })
-    
-          })
     
         
       // Test Case 5 - Challenging DOM
@@ -1070,6 +1005,8 @@ describe('The herokuapp Test', () => {
     
           
     })
+
+    */
       // End of Test Case
     
     })
