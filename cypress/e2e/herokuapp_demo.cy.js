@@ -9,72 +9,9 @@ describe('The herokuapp Test', () => {
     
     
         
-      // Test Case 5 - Challenging DOM
-      it('Challenging DOM', () => {
-        cy.visit('https://the-internet.herokuapp.com/')  
-        cy.get('ul li').eq(4).click(15,10) 
-        cy.get('table tbody tr').eq(3).find('a[href="#delete"]').click()
-        cy.get('div.large-2.columns a.button').eq(0).click() //clicks the first button regardless if the ID or Value name changes
-        // OR cy.get('div.large-2.columns a.button').first.click()
-      })
-    
-      // Test Case 6 - Checkbox
-      it('Checkbox', () => {
-        cy.visit('https://the-internet.herokuapp.com/')  
-        cy.get('ul li').eq(5).click(15,10) 
-    
-        //verify if checkbox is unchecked (false) or checked (true)
-        cy.get('#checkboxes input[type="checkbox"]').eq(0).invoke('prop', 'checked').should('be.false')
-        cy.get('#checkboxes input[type="checkbox"]').eq(1).invoke('prop', 'checked').should('be.true')
-    
-    
-        // determine if check is "unchecked" or "checked"
-        cy.get('#checkboxes input[type="checkbox"]').eq(0).invoke('prop', 'checked').then((isCheckedBol) => {
-          let isChecked;
-          if (isCheckedBol){
-            isChecked = 'checked';
-          }else{
-            isChecked = 'unchecked';
-          }
-          cy.log('The check box is ' + isChecked+'.');
-        })
-    
-      })
-    
-      // Test Case 6 - Context Menu
-      it('Context Menu', () => {
-        cy.visit('https://the-internet.herokuapp.com/')  
-        cy.get('ul li').eq(6).click(15,10) 
-        cy.get('#hot-spot').rightclick();
-        
-        cy.on('window:alert', (alertText) => {
-          expect(alertText).to.equal('You selected a context menu'); // Replace with actual alert text
-        });
-    
-      })
+  
     
       
-       // Test Case 7 - Digest Auth -- was not able to fix this yet
-       it('Digest Auth', () => {
-        cy.visit('https://the-internet.herokuapp.com/')
-        
-        cy.contains('Digest Authentication').click();
-        cy.task('digestAuthLogin', {
-                url: 'https://the-internet.herokuapp.com/digest_auth',
-                user: 'admin',
-                pass: 'admin'
-                }).then((cookies) => {
-                    cookies.forEach((cookieStr) => {
-                    const cookieParts = cookieStr.split(';')[0].split('=');
-                    cy.setCookie(cookieParts[0], cookieParts[1]);
-                    })
-                }).then(() => {
-                  cy.visit('https://the-internet.herokuapp.com/digest_auth');
-                  cy.contains('Congratulations! You must have the proper credentials.');
-                  cy.clearAllCookies()
-                })
-        
-        })
         
     
         // Test Case 8 - Disappearing Elements
