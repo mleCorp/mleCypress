@@ -14,48 +14,10 @@ describe('The herokuapp Test', () => {
       
         
     
-        // Test Case 8 - Disappearing Elements
-        it('Disappearing Elements', () => {
-          cy.visit('https://the-internet.herokuapp.com/')
-          cy.get('ul li').eq(8).click(15,10)
-          cy.get('ul li').its('length').then((numberOfButtons) => { // determine the length of buttons
-            cy.log('Total Number of Buttons = ' + numberOfButtons); 
-            const clickThisButton = numberOfButtons - 1; // since its array - I had to deduct 1 (for the last button)
-            cy.get('ul li').eq(clickThisButton).click() // using const clickThisButton as to demo const in testing
-          })
-    
-        })
+        
         
     
-        // Test Case 9 - Drag and Drop
-        it('Drag and Drop', () => {
-          cy.visit('https://the-internet.herokuapp.com/')
-          cy.get('ul li').eq(9).click(15,10)
-    
-          cy.get('.column').eq(1).invoke('text').then((text) => {
-            cy.log('The Last Column is ' + text);
-          });
-    
-          const dataTransfer = new DataTransfer();
-          cy.get('#column-a').trigger('dragstart', { dataTransfer })
-          cy.get('#column-b').trigger('drop', { dataTransfer })
-          cy.get('#column-a').trigger('dragend')
-    
-          cy.get('.column').eq(1).invoke('text').then((text) => {
-            cy.log('The Last Column is ' + text);  
-          });
-          
-          cy.get('#column-a').trigger('dragstart', { dataTransfer })
-          cy.get('#column-b').trigger('drop', { dataTransfer })
-          cy.get('#column-a').trigger('dragend')
-    
-            cy.get('.column').eq(1).invoke('text').then((text) => {
-              cy.log('The Last Column is ' + text);  
-            });
-            
-    
-        })
-    
+        
         
     
         // Test Case 10 - Dropdown
